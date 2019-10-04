@@ -27,7 +27,7 @@ program farmville {
 		"tengo cosechadas " + hector.cantidadDePlantasCosechadas() + " plantas"
 		)
 	})
-	keyboard.left().onPressDo({ hector.moveteALaIzquierda()})
+//	keyboard.left().onPressDo({ hector.moveteALaIzquierda()})
 	
 	// COLISIONES
 	game.whenCollideDo(oso, { objeto => objeto.teChocoElOso() })
