@@ -6,8 +6,12 @@ object hector {
 	var property image = "player.png"
 	var property plantasCosechadas = []
 	
-	method plantarMaiz() {
-		game.addVisual(new Maiz(position=self.position()))
+	method plantarMaiz(regionPrivilegiada) {
+		var nuevaPlanta = new Maiz(position=self.position())
+		if (regionPrivilegiada.incluye(position)) {
+			nuevaPlanta.duplicarPrecio()
+		}
+		game.addVisual(nuevaPlanta)
 	}
 
 	method plantarTrigo() {
@@ -31,4 +35,16 @@ object hector {
 	method cantidadDePlantasCosechadas() {
 		return plantasCosechadas.size()
 	}
+	
+	method plataEnPlantasCosechadas() {
+		return plantasCosechadas.sum({ p => p.precio() })
+	}
+	
+	method moverEnDireccion(direccion) {
+		self.position(direccion.siguientePosicion(self.position()))
+	}
+	
+	method esPlanta() { return false }
+
+	method teChocoElOso() { plantasCosechadas = [] }
 }

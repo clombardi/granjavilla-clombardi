@@ -1,6 +1,7 @@
 class Maiz {
 	var property position
-	var property esAdulta = false 
+	var property esAdulta = false
+	var property precio = 100 
 	
 	method image() {
 		if (esAdulta) {
@@ -16,6 +17,8 @@ class Maiz {
 	method teChocoElOso() {
 		self.regate()
 	}
+	method esPlanta() { return true }
+	method duplicarPrecio() { precio = precio * 2 }
 }
 
 class Trigo {
@@ -28,4 +31,6 @@ class Trigo {
 			position = position.left(1)
 		}
 	}
+	method esPlanta() { return true }
+	method precio() { return 150 }	
 }
